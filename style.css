@@ -1,29 +1,3 @@
-body.altesindex {
-	margin: 0;
-	padding: 0;
-	display: grid;
-	grid-template-areas:
-		"header"
-		"main"
-		"footer";
-	grid-template-columns: 1fr;
-	grid-template-rows: auto 1fr auto;
-	height: 100dvh;
-}
-
-main.altesindex {
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-canvas {
-	border: 1px solid black;
-	height: 480px;
-	width: 640px;
-}
-
 .title {
 	background-color: var(--main-color);
 	color: black;
