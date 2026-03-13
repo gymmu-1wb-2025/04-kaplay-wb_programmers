@@ -1,25 +1,250 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-areas:
-        "header"
-        "main"
-        "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: 100dvh;
+.title {
+	background-color: var(--main-color);
+	color: black;
+	font-size: 50pt;
+	text-align: center;
+	padding: 15pt;
+	margin: 0;
+	height: 65pt;
 }
+
+/*macht die visuals der titel in allen headern. legt hintergrundfarbe, schriftgrösse, textausrichtung etc. fest.*/
+
+.Gr {
+	background-color: none;
+	color: black;
+	font-size: 50pt;
+	text-align: center;
+	border-radius: 2px;
+	padding: 15pt;
+	margin: 0;
+}
+
+/*wird in meinem fall nur für den hauptitel der website benutzt. im grunde eine alternative um einen titel darzustellen.*/
+
+:root {
+	--main-color: rgba(235, 231, 167, 0.5);
+	--nav-color: rgba(235, 231, 167, 0.7);
+}
+
+/*die root besteht aus Css-Variablen aus denen die hauptfarben der webseite gelesen werden kann/wird. diese variablen können von Javascript geändert werden.*/
+
+.section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	min-height: 100%;
+	background-color: var(--main-color);
+}
+
+/*macht das layout von gewissen blöcken. zentriert den Inhalt mit Flexbox und gibt der box die hauptfarbe als hintergrund.*/
+
+.color-list {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+	margin-top: auto;
+}
+
+/*stellt die Liste der farbauswahl dar. sie entfernt die aufzählungszeichen, ordnet die punkte untereinander an und zeigt das sie klickbar sind.*/
+
+aside nav:last-child {
+	margin-top: auto;
+}
+
+/*sagt wo das Nav positioniert sein soll. macht abstände damit die farbauswahl nicht direkt am Rand klebt.*/
+
+.nav-bottom {
+	display: flex;
+	flex-direction: column;
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+	margin-bottom: 0.2em;
+}
+
+/* steuert die positionierung des untenliegenden navs.macht Abstände,
+damit die Farbauswahl nicht direkt am rand ist */
+
+.aside {
+	background-color: var(--nav-color);
+	display: flex;
+	flex-direction: column;
+}
+
+/*Gestaltet das nav. setzt die Navigationsfarbe als Hintergrund.*/
+
+aside a {
+	text-decoration: none;
+}
+
+/*keine Unterstreichung der Links im nav mehr.*/
+
+aside ul {
+	list-style: none;
+	margin: 0.2em;
+	padding: 0.2em;
+}
+
+/*macht die Abstände der Listen im nav. Sorgt dafür das das nav nicht zu eng ist.*/
+
+.color-list > li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1em;
+}
+
+/* ordnet Farbpunkt und Text nebeneinander an.
+Sorgt für saubere darstellung und gleichmässige Abstände.*/
+
+.link-family > li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1em;
+}
+
+/* ordnet unterwebsitepunkte und icons nebeneinander an.
+Sorgt für saubere darstellung und gleichmässige Abstände.*/
+
+.link-family {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+}
+
+/*gibt das Layout des navs an .stellt die navpunkte untereinander dar und macht sie "klickbar".*/
+
+.footer {
+	display: flex;
+	font-size: 17pt;
+	color: black;
+	text-align: bottom;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--main-color);
+	margin: 0;
+}
+
+/*sagt dem Footer wie er auszusehen hat. zentriert den Text, macht die schriftgrösse und übernimmt die "main"farbe als Hintergrund.*/
+
+.nav-title {
+	font-size: 15pt;
+	color: black;
+	margin: 0;
+}
+
+/*bestimmt das Aussehen der nav texte.macht die Schriftgröße und Farbe, damit alle nav punkte gleich aussehen.*/
+
+.grid-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	align-items: center;
+	justify-content: center;
+}
+
+/*ordnet mehrere "inhalte" (in meinem fall Bilder) untereinander an.
+zentriert sie und sorgt für gleichmäßige Abstände.*/
+
+/* legt ds layout der seite fest */
+.layout {
+	margin: 0;
+	display: grid;
+	height: 100dvh;
+	grid-template-columns: 20% 1fr;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+		"header header"
+		"aside main"
+		"footer footer";
+
+	/* das zb header element direkt im body wird hier dem entsprechenden grid zugewiesen. */
+	& > header {
+		grid-area: header;
+	}
+
+	& > aside {
+		grid-area: aside;
+	}
+
+	& > main {
+		grid-area: main;
+	}
+
+	& > footer {
+		grid-area: footer;
+	}
+}
+
+/*gestaltet einzelne Boxen im Grid. gibt ihnen runde Ecken, festegelegte breite und eine "hoveranimation".*/
+
+.grid-wrapper > div {
+	border-radius: 2rem;
+	overflow: hidden;
+	width: 650px;
+	transition: scale 800ms ease-in-out;
+}
+
+/*vergrössert die Box leicht beim drüber hovern mit dem zeiger.*/
+
+.grid-wrapper > div:hover {
+	scale: 1.1;
+}
+
+/*sorgt dafür das bilder die komplette Box ausfüllen,
+verhindert falsche skalierung.*/
+
+.grid-wrapper > div > a > img {
+	width: 100%;
+}
+
+/*regelt abstände des mains. verhindert das das main direkt am rand klebt.*/
+
+.main {
+	margin: 8pt;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/*erlaubt vertikales scrollen im main. Wichtig bei Geografie.*/
 
 main {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	overflow-y: scroll;
 }
 
-canvas {
-    border: 1px solid black;
-    height: 480px;
-    width: 640px;
+/*macht alle SVG-Elemente schwarz.*/
+
+svg > * {
+	fill: black;
+}
+
+/*macht ausgewählte SVG elemente durchsichtig.*/
+
+.transparent {
+	fill: transparent;
+}
+
+/*geben an welche Farbe die kreise im nav haben.*/
+
+.yellow {
+	fill: yellow;
+}
+
+.red {
+	fill: red;
+}
+
+.green {
+	fill: green;
+}
+
+.blue {
+	fill: blue;
 }
