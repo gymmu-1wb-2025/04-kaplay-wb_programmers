@@ -9,13 +9,23 @@ export default function jump() {
 		id: "jump",
 		/** @this {GameObj} */
 		add() {
-			this.onKeyDown("space", () => {
-				if (this.isGrounded()) {
+			let canJump = true;
+
+			// Springen nur einmal pro Bodenkontakt
+			this.onKeyPress("space", () => {
+				if (canJump && this.isGrounded()) {
 					this.jump();
+					canJump = false;
 				}
 			});
+
+			// Erst wenn man wieder landet, darf man erneut springen
+			this.onGround(() => {
+				canJump = true;
+			});
+
 			this.onCollide("npc", (npc, col) => {
-				// Player jumps ontop of npc
+				// Von oben auf NPC
 				if (col.normal.y < 0) {
 					npc.hp -= 1;
 					this.jump();
