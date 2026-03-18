@@ -16,6 +16,17 @@ export default function sc01() {
 		"player",
 	]);
 
+player. onUpdate(() => {
+
+player.pos.x = k.clamp(player.pos.x, 0, k.width());
+player.pos.y = k.clamp(player.pos.y, 0, k.height());
+
+});
+
+
+
+
+
 	k.add([
 		k.rect(800, 20),
 		k.pos(0, 420),
