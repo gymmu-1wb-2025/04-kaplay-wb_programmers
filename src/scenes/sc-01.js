@@ -13,13 +13,23 @@ export default function sc01() {
 		k.area(),
 		controller(320),
 		jump(),
-		camCenter(),
 		"player",
 	]);
 
+player. onUpdate(() => {
+
+player.pos.x = k.clamp(player.pos.x, 0, k.width());
+player.pos.y = k.clamp(player.pos.y, 0, k.height());
+
+});
+
+
+
+
+
 	k.add([
-		k.rect(630, 20),
-		k.pos(0, 520),
+		k.rect(800, 20),
+		k.pos(0, 420),
 		k.color(124, 252, 0),
 		k.body({ isStatic: true }),
 		k.area(),
@@ -27,8 +37,8 @@ export default function sc01() {
 	]);
 
 k.add([
-		k.rect(630, 40),
-		k.pos(0, 540),
+		k.rect(800, 40),
+		k.pos(0, 440),
 		k.color(139, 69, 19),
 		k.body({ isStatic: true }),
 		k.area(),
@@ -45,4 +55,10 @@ k.add([
 	player.onCollideEnd("world", () => {
 		player.color = k.WHITE;
 	});
+
+
+k.setBackground(94, 185, 255)
+
+
+
 }

@@ -4,7 +4,7 @@ import sc01 from "./scenes/sc-01";
 
 const k = kaplay({
 	height: 480,
-	width: 640,
+	width: 800,
 	canvas: document.getElementById("game-canvas"),
 	background: "#000000",
 	global: false,
