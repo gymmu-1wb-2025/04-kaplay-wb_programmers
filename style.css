@@ -52,12 +52,6 @@
 
 /*stellt die Liste der farbauswahl dar. sie entfernt die aufzählungszeichen, ordnet die punkte untereinander an und zeigt das sie klickbar sind.*/
 
-aside nav:last-child {
-	margin-top: auto;
-}
-
-/*sagt wo das Nav positioniert sein soll. macht abstände damit die farbauswahl nicht direkt am Rand klebt.*/
-
 .nav-bottom {
 	display: flex;
 	flex-direction: column;
@@ -217,10 +211,10 @@ verhindert falsche skalierung.*/
 
 main {
 	overflow-y: scroll;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /*macht alle SVG-Elemente schwarz.*/
@@ -251,4 +245,28 @@ svg > * {
 
 .blue {
 	fill: blue;
+}
+
+.img-overlay {
+	display: grid;
+	grid-template-areas: "stack";
+	justify-content: center;
+	align-items: center;
+}
+
+a.img-overlay {
+	text-decoration: none;
+	color: azure;
+	font-size: 32px;
+}
+
+.img-overlay > h2 {
+	grid-area: 1 / 1;
+	z-index: 100;
+	text-align: center;
+}
+
+.img-overlay > img {
+	grid-area: 1 / 1;
+	filter: brightness(0.5625);
 }
