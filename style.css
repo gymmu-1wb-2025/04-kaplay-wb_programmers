@@ -217,6 +217,10 @@ verhindert falsche skalierung.*/
 
 main {
 	overflow-y: scroll;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 /*macht alle SVG-Elemente schwarz.*/
