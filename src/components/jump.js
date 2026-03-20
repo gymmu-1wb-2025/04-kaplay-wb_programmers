@@ -8,6 +8,8 @@ export default function jump() {
 	return {
 		id: "jump",
 		/** @this {GameObj} */
+
+
 		add() {
 
 
