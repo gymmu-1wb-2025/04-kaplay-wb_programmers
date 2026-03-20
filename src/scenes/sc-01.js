@@ -1,6 +1,7 @@
 import camCenter from "../components/camCenter";
 import controller from "../components/controller";
 import jump from "../components/jump";
+import shoot from "../components/shoot";
 import k from "../main";
 
 export default function sc01() {
@@ -13,6 +14,7 @@ export default function sc01() {
 		k.area(),
 		controller(320),
 		jump(),
+		shoot(),
 		"player",
 	]);
 

@@ -13,8 +13,19 @@ export default function shoot() {
 
 		/** @this {GameObj}  */
 		add() {
-			this.onKeyPress("e", () => {
+
+			let canShoot = true;
+
+			this.onKeyDown("enter", () => {
+				if (!canShoot) return;
+
+				canShoot = false;
 				this.shoot();
+
+				// Nach 0.5 Sekunden kann wieder geschossen werden
+				k.wait(0.1, () => {
+					canShoot = true;
+				});
 			});
 
 			k.on("shoot", "npc", (npc) => {
@@ -27,7 +38,7 @@ export default function shoot() {
 				k.anchor("center"),
 				k.circle(radius),
 				k.color(k.RED),
-				k.pos(this.pos.add(this.width / 2 + radius + 1, 0)),
+				k.pos(this.pos.add(30 + radius, + 1, 0)),
 				k.body({ gravityScale: 0 }),
 				k.area({ restitution: 1 }),
 				"projectile",

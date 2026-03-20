@@ -12,7 +12,7 @@ export default function jump() {
 			let canJump = true;
 
 			// Springen nur einmal pro Bodenkontakt
-			this.onKeyPress("space", () => {
+			this.onKeyDown("space", () => {
 				if (canJump && this.isGrounded()) {
 					this.jump();
 					canJump = false;
