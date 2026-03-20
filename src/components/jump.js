@@ -8,21 +8,19 @@ export default function jump() {
 	return {
 		id: "jump",
 		/** @this {GameObj} */
+
+
 		add() {
-			let canJump = true;
+
 
 			// Springen nur einmal pro Bodenkontakt
 			this.onKeyPress("space", () => {
-				if (canJump && this.isGrounded()) {
+				if (this.isGrounded()) {
 					this.jump();
-					canJump = false;
 				}
 			});
 
-			// Erst wenn man wieder landet, darf man erneut springen
-			this.onGround(() => {
-				canJump = true;
-			});
+
 
 			this.onCollide("npc", (npc, col) => {
 				// Von oben auf NPC
