@@ -2,6 +2,7 @@ import camCenter from "../components/camCenter";
 import controller from "../components/controller";
 import jump from "../components/jump";
 import shoot from "../components/shoot";
+import hunt from "../components/hunt";
 import k from "../main";
 
 export default function sc01() {
@@ -9,7 +10,7 @@ export default function sc01() {
 
 	const player = k.add([
 		k.circle(20),
-		k.pos(320, 240),
+		k.pos(100, 240),
 		k.body(),
 		k.area(),
 		controller(320),
@@ -24,8 +25,16 @@ player.pos.x = k.clamp(player.pos.x, 0, k.width());
 player.pos.y = k.clamp(player.pos.y, 0, k.height());
 
 });
-
-
+const enemy = k.add([
+		k.rect(125, 250),
+		k.pos(700, 395),
+		k.area(),
+		k.body(),
+		k.color(255, 0, 0), // Rot
+		k.anchor("center"),
+		k.health(3),
+		"npc",
+	]);
 
 
 
@@ -50,9 +59,7 @@ k.add([
 
 
 
-	player.onCollide("world", () => {
-		player.color = k.RED;
-	});
+
 
 	player.onCollideEnd("world", () => {
 		player.color = k.WHITE;

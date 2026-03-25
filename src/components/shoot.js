@@ -37,14 +37,13 @@ export default function shoot() {
 			const projectile = k.add([
 				k.anchor("center"),
 				k.circle(radius),
-				k.color(k.RED),
+				k.color(k.BLUE),
 				k.pos(this.pos.add(30 + radius, + 1, 0)),
 				k.body({ gravityScale: 0 }),
 				k.area({ restitution: 1 }),
 				"projectile",
 			]);
 			projectile.applyImpulse(k.vec2(speed, 0));
-			k.trigger("shoot", "npc");
 
 			projectile.on("collide", (gameObject) => {
 				projectile.destroy();
