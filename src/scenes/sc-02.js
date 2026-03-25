@@ -25,18 +25,6 @@ player.pos.x = k.clamp(player.pos.x, 0, k.width());
 player.pos.y = k.clamp(player.pos.y, 0, k.height());
 
 });
-const enemy = k.add([
-		k.rect(125, 250),
-		k.pos(700, 300),
-		k.area(),
-		k.body({ isStatic: true }),
-		k.color(255, 0, 0), // Rot
-		k.anchor("center"),
-		{ hp: 15 }, // Manuelle HP-Variable
-		"npc",
-	]);
-
-
 
 	k.add([
 		k.rect(800, 20),
