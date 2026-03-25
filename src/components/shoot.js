@@ -45,12 +45,25 @@ export default function shoot() {
 			]);
 			projectile.applyImpulse(k.vec2(speed, 0));
 
-			projectile.on("collide", (gameObject) => {
-				projectile.destroy();
-				if (gameObject.is("npc")) {
-					gameObject.destroy();
-				}
-			});
+projectile.on("collide", (gameObject) => {
+    projectile.destroy();
+    if (gameObject.is("npc")) {
+        gameObject.hp -= 1; // Reduziert HP um 1
+
+        // Zerstöre NPC wenn HP auf 0 oder weniger
+        if (gameObject.hp <= 0) {
+            gameObject.destroy();
+			const sn = k.getSceneName()
+			if (sn === "lvl-01") {
+				k.go("lvl-02");
+			} else if (sn === "lvl-02") {
+				k.go("lvl-03");
+			}
+        }
+    }
+});
+
+
 		},
 	};
 }
