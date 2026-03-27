@@ -40,30 +40,34 @@ export default function shoot() {
 				k.color(k.BLUE),
 				k.pos(this.pos.add(30 + radius, + 1, 0)),
 				k.body({ gravityScale: 0 }),
-				k.area({ restitution: 1 }),
+				k.area(),
 				"projectile",
 			]);
 			projectile.applyImpulse(k.vec2(speed, 0));
 
-projectile.on("collide", (gameObject) => {
-    projectile.destroy();
-    if (gameObject.is("npc")) {
-        gameObject.hp -= 1; // Reduziert HP um 1
+			projectile.on("collide", (gameObject) => {
+				// Spieler-Projektil wird von Gegner-Projektil zerstört
+				if (gameObject.is("enemyProjectile")) {
+					projectile.destroy();
+					return; // Gegner-Projektil fliegt weiter
+				}
 
-        // Zerstöre NPC wenn HP auf 0 oder weniger
-        if (gameObject.hp <= 0) {
-            gameObject.destroy();
-			const sn = k.getSceneName()
-			if (sn === "lvl-01") {
-				k.go("lvl-02");
-			} else if (sn === "lvl-02") {
-				k.go("lvl-03");
-			}
-        }
-    }
-});
+				projectile.destroy();
+				if (gameObject.is("npc")) {
+					gameObject.hp -= 1; // Reduziert HP um 1
 
-
+					// Zerstöre NPC wenn HP auf 0 oder weniger
+					if (gameObject.hp <= 0) {
+						gameObject.destroy();
+						const sn = k.getSceneName()
+						if (sn === "lvl-01") {
+							k.go("lvl-02");
+						} else if (sn === "lvl-02") {
+							k.go("lvl-03");
+						}
+					}
+				}
+			});
 		},
 	};
 }
