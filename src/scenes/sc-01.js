@@ -16,27 +16,43 @@ export default function sc01() {
 		controller(320),
 		jump(),
 		shoot(),
+		{ hp: 3, maxHp: 3 }, // Spieler-Leben
 		"player",
 	]);
 
-player. onUpdate(() => {
+	player.onUpdate(() => {
+		player.pos.x = k.clamp(player.pos.x, 0, k.width());
+		player.pos.y = k.clamp(player.pos.y, 0, k.height());
+	});
 
-player.pos.x = k.clamp(player.pos.x, 0, k.width());
-player.pos.y = k.clamp(player.pos.y, 0, k.height());
+	// Kollision mit NPC-Projektilen
+	player.onCollide("enemyProjectile", (projectile) => {
+		projectile.destroy();
+		player.hp -= 1;
 
-});
-const enemy = k.add([
+		// Visuelle Anzeige für Schaden
+		player.color = k.RED;
+		k.wait(0.2, () => {
+			player.color = k.WHITE;
+		});
+
+		// Game Over bei 0 HP
+		if (player.hp <= 0) {
+			k.go("init"); // Neustart
+		}
+	});
+
+	const enemy = k.add([
 		k.rect(125, 250),
 		k.pos(700, 300),
 		k.area(),
 		k.body({ isStatic: true }),
 		k.color(255, 0, 0), // Rot
 		k.anchor("center"),
-		{ hp: 15 }, // Manuelle HP-Variable
+		hunt(),
+		{ hp: 150 }, // HP
 		"npc",
 	]);
-
-
 
 	k.add([
 		k.rect(800, 20),
@@ -47,7 +63,7 @@ const enemy = k.add([
 		"world",
 	]);
 
-k.add([
+	k.add([
 		k.rect(800, 40),
 		k.pos(0, 440),
 		k.color(139, 69, 19),
@@ -56,18 +72,19 @@ k.add([
 		"world",
 	]);
 
-
-
-
-
-
 	player.onCollideEnd("world", () => {
 		player.color = k.WHITE;
 	});
 
+	k.setBackground(94, 185, 255);
 
-k.setBackground(94, 185, 255)
-
-
-
+	// Leben-Anzeige
+	k.onDraw(() => {
+		k.drawText({
+			text: `Leben: ${player.hp}/${player.maxHp}`,
+			pos: k.vec2(20, 20),
+			size: 24,
+			color: k.WHITE,
+		});
+	});
 }
