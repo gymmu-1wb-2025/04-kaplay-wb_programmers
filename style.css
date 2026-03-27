@@ -19,8 +19,8 @@
 }
 
 :root {
-	--main-color: rgba(56, 65, 95, 0.5);
-	--nav-color: rgba(75, 85, 139, 0.7);
+	--main-color: rgba(68, 74, 94, 0.5);
+	--nav-color: rgba(63, 67, 92, 0.7);
 }
 
 .section {
@@ -164,10 +164,9 @@ aside ul {
 
 main {
 	overflow-y: scroll;
-	height: 100%;
+
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 .transparent {
