@@ -162,6 +162,11 @@ aside ul {
 	margin-bottom: 0;
 }
 
+.text {
+	text-align: justify;
+	justify-content: center;
+}
+
 main {
 	overflow-y: scroll;
 
