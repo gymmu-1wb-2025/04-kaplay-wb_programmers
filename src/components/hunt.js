@@ -1,12 +1,12 @@
 import k from "../main";
 
-export default function hunt() {
+export default function hunt(repeatTime = 2.5) {
 	return {
 		id: "hunt",
 
 		add() {
-			// Schieß-Loop schiesst alle 2 Sekunden
-			this.shootLoop = k.loop(2, () => {
+			// Schiess-Loop schiesst alle 2.5 Sekunden
+			this.shootLoop = k.loop(repeatTime, () => {
 				const player = k.get("player")[0];
 				if (!player) return;
 
