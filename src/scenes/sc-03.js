@@ -61,41 +61,6 @@ player.pos.y = k.clamp(player.pos.y, 0, k.height());
         }
     });
 
-    k.add([
-        k.rect(125, 120),
-        k.pos(700, 240),
-        k.area(),
-        k.body({ isStatic: true }),
-        k.color(255, 0, 0), // Rot
-        k.anchor("center"),
-        hunt(),
-        { hp: 150 }, // HP
-        "npc",
-    ]);
-
-    k.add([
-        k.rect(125, 180),
-        k.pos(700, 90),
-        k.area(),
-        k.body({ isStatic: true }),
-        k.color(255, 0, 0), // Rot
-        k.anchor("center"),
-        hunt(3),
-        { hp: 150 }, // HP
-        "npc",
-    ]);
-
-    k.add([
-        k.rect(125, 180),
-        k.pos(700, 390),
-        k.area(),
-        k.body({ isStatic: true }),
-        k.color(255, 0, 0), // Rot
-        k.anchor("center"),
-        hunt(),
-        { hp: 150 }, // HP
-        "npc",
-    ]);
 
 
 	k.add([
