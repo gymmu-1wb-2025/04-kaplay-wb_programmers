@@ -20,6 +20,6 @@ k.scene("lvl-01", sc01);
 k.scene("lvl-02", sc02);
 k.scene("lvl-03", sc03);
 k.scene("win", scWin);
-k.go("lvl-01");
+k.go("init");
 
 export default k;
