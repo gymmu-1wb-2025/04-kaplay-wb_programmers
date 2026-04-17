@@ -27,10 +27,6 @@ export default function shoot() {
 					canShoot = true;
 				});
 			});
-
-			k.on("shoot", "npc", (npc) => {
-				npc.jump();
-			});
 		},
 		/** @this {GameObj}  */
 		shoot() {
@@ -60,11 +56,13 @@ export default function shoot() {
 					if (gameObject.hp <= 0) {
 						gameObject.destroy();
 						const sn = k.getSceneName()
-						if (sn === "lvl-01") {
-							k.go("lvl-02");
-						} else if (sn === "lvl-02") {
-							k.go("lvl-03");
-						}
+					if (sn === "lvl-01") {
+						k.go("lvl-02");
+					} else if (sn === "lvl-02") {
+						k.go("lvl-03");
+					} else if (sn === "lvl-03") {
+						k.go("win");
+					}
 					}
 				}
 			});
