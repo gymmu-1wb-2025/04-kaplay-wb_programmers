@@ -26,7 +26,7 @@ export default function hunt(repeatTime = 2.5, startDelay = 0) {
 
 		enemyShoot(targetPos) {
 			const direction = targetPos.x > this.pos.x ? 1 : -1;
-			const radius = 30;
+			const radius = 56;
 			const speed = 300;
 
 			const projectile = k.add([

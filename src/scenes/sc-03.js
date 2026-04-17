@@ -140,6 +140,12 @@ k.add([
 		"npc",
 	]);
 
+	k.onCollide("playerBullet", "npc", (bullet, boss) => {
+	if (!bullet.exists()) return;
+
+	bullet.destroy();
+	damageAllBosses(1);
+});
 
 
 
