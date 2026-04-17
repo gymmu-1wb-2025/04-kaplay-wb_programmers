@@ -60,7 +60,23 @@ player.pos.y = k.clamp(player.pos.y, 0, k.height());
             k.go("init"); // Neustart
         }
     });
+k.add([
+		k.rect(800, 20),
+		k.pos(0, 420),
+		k.color(124, 252, 0),
+		k.body({ isStatic: true }),
+		k.area(),
+		"world",
+	]);
 
+k.add([
+		k.rect(800, 40),
+		k.pos(0, 440),
+		k.color(139, 69, 19),
+		k.body({ isStatic: true }),
+		k.area(),
+		"world",
+	]);
 
 
 	k.add([
