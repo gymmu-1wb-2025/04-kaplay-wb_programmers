@@ -28,9 +28,6 @@ export default function shoot() {
 				});
 			});
 
-			k.on("shoot", "npc", (npc) => {
-				npc.jump();
-			});
 		},
 		/** @this {GameObj}  */
 		shoot() {

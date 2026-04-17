@@ -7,6 +7,25 @@ import k from "../main";
 export default function sc01() {
 	k.setGravity(0);
 
+	let sharedBossHp = 20;
+let bossFightEnded = false;
+
+function damageAllBosses(dmg = 1) {
+	if (bossFightEnded) return;
+
+	sharedBossHp -= dmg;
+
+	if (sharedBossHp <= 0) {
+		bossFightEnded = true;
+
+		k.get("npc").forEach((boss) => {
+			if (boss.exists()) boss.destroy();
+		});
+
+		k.go("win");
+	}
+}
+
 	const player = k.add([
 		k.circle(20),
 		k.pos(100, 240),
