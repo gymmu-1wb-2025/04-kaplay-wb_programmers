@@ -29,7 +29,6 @@ export default function hunt(repeatTime = 2.5, startDelay = 0) {
 			const direction = targetPos.x > this.pos.x ? 1 : -1;
 			const radius = 56;
 			const speed = 300;
-
 			const projectile = k.add([
 				k.anchor("center"),
 				k.circle(radius),
@@ -40,7 +39,6 @@ export default function hunt(repeatTime = 2.5, startDelay = 0) {
 				k.move(k.RIGHT, direction * speed),
 				"enemyProjectile",
 			]);
-
 
 			// Projektil nach 3 Sekunden entfernen
 			k.wait(3, () => {
