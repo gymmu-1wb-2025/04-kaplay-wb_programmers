@@ -62,37 +62,61 @@ k.add([
 
 
 	k.add([
-		k.rect(125, 250),
-		k.pos(700, 300),
+		k.rect(125, 100),
+		k.pos(700, -16),
 		k.area(),
 		k.body({ isStatic: true }),
 		k.color(255, 0, 0), // Rot
 		k.anchor("center"),
-		hunt(),
+		hunt(2.5, 0),
 		{ hp: 150 }, // HP
 		"npc",
 	]);
 
 	k.add([
-		k.rect(125, 250),
+		k.rect(125, 100),
 		k.pos(700, 300),
 		k.area(),
 		k.body({ isStatic: true }),
 		k.color(255, 0, 0), // Rot
 		k.anchor("center"),
-		hunt(),
+		hunt(2.5, 0.6),
 		{ hp: 150 }, // HP
 		"npc",
 	]);
 
 	k.add([
-		k.rect(125, 500),
+		k.rect(125, 100),
 		k.pos(700, 130),
 		k.area(),
 		k.body({ isStatic: true }),
 		k.color(255, 0, 0), // Rot
 		k.anchor("center"),
-		hunt(3),
+		hunt(2.5, 1.2),
+		{ hp: 150 }, // HP
+		"npc",
+	]);
+
+k.add([
+		k.rect(125, 500),
+		k.pos(700, 190),
+		k.area(),
+		k.body({ isStatic: true }),
+		k.color(255, 0, 0), // Rot
+		k.anchor("center"),
+		hunt(2.5, 1.8),
+		{ hp: 150 }, // HP
+		"npc",
+	]);
+
+k.add([
+		k.rect(125, 500),
+		k.pos(700, 75),
+		k.area(),
+		k.body({ isStatic: true }),
+		k.color(255, 0, 0), // Rot
+		k.anchor("center"),
+		hunt(2.5, 2.4),
 		{ hp: 150 }, // HP
 		"npc",
 	]);
