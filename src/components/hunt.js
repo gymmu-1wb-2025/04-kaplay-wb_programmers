@@ -1,10 +1,11 @@
 import k from "../main";
 
-export default function hunt(repeatTime = 2.5) {
+export default function hunt(repeatTime = 2.5, speed = 300, delay = 0, radius = 54) {
 	return {
 		id: "hunt",
 
 		add() {
+			k.wait(delay, () => {
 			// Schiess-Loop schiesst alle 2.5 Sekunden
 			this.shootLoop = k.loop(repeatTime, () => {
 				const player = k.get("player")[0];
@@ -16,13 +17,13 @@ export default function hunt(repeatTime = 2.5) {
 					this.enemyShoot(player.pos);
 				}
 			});
+			});
 		},
 
 
 		enemyShoot(targetPos) {
 			const direction = targetPos.x > this.pos.x ? 1 : -1;
-			const radius = 54;
-			const speed = 300;
+
 
 			const projectile = k.add([
 				k.anchor("center"),

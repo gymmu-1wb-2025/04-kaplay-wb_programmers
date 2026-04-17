@@ -2,6 +2,7 @@ import kaplay from "kaplay";
 import sc00 from "./scenes/sc-00";
 import sc01 from "./scenes/sc-01";
 import sc02 from "./scenes/sc-02";
+import sc03 from "./scenes/sc-03";
 
 const k = kaplay({
 	height: 480,
@@ -16,7 +17,8 @@ const k = kaplay({
 k.scene("init", sc00);
 k.scene("lvl-01", sc01);
 k.scene("lvl-02", sc02);
+k.scene("lvl-03", sc03);
 
-k.go("lvl-02");
+k.go("lvl-03");
 
 export default k;
