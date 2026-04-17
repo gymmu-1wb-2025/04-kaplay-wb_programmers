@@ -5,15 +5,14 @@ import hunt from "../components/hunt";
 import k from "../main";
 
 export default function sc01() {
-	k.setGravity(1600);
+	k.setGravity(0);
 
 	const player = k.add([
 		k.circle(20),
 		k.pos(100, 240),
 		k.body(),
 		k.area(),
-		controller(320),
-		jump(),
+		controllerAir(320),
 		shoot(),
 		{ hp: 3, maxHp: 3 }, // Spieler-Leben
 		"player",
