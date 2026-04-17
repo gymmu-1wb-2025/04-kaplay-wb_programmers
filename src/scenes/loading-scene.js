@@ -8,6 +8,8 @@ export default function loadingScene() {
 			k.anchor("center"),
 		]);
 
+		k.setBackground(0, 0, 0);
+
 		k.onKeyPress("space", () => {
 			k.go("level-01");
 		});

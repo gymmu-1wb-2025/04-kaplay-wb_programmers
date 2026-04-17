@@ -20,12 +20,14 @@ export default function sc01() {
 		"player",
 	]);
 
-	player.onUpdate(() => {
-		player.pos.x = k.clamp(player.pos.x, 0, k.width());
-		player.pos.y = k.clamp(player.pos.y, 0, k.height());
-	});
+player. onUpdate(() => {
 
-	// Kollision mit NPC-Projektilen
+player.pos.x = k.clamp(player.pos.x, 0, k.width());
+player.pos.y = k.clamp(player.pos.y, 0, k.height());
+
+});
+
+// Kollision mit NPC-Projektilen
 	player.onCollide("enemyProjectile", (projectile) => {
 		projectile.destroy();
 		player.hp -= 1;
@@ -42,18 +44,6 @@ export default function sc01() {
 		}
 	});
 
-	const enemy = k.add([
-		k.rect(125, 250),
-		k.pos(700, 300),
-		k.area(),
-		k.body({ isStatic: true }),
-		k.color(255, 0, 0), // Rot
-		k.anchor("center"),
-		hunt(),
-		{ hp: 150 }, // HP
-		"npc",
-	]);
-
 	k.add([
 		k.rect(800, 20),
 		k.pos(0, 420),
@@ -63,7 +53,7 @@ export default function sc01() {
 		"world",
 	]);
 
-	k.add([
+k.add([
 		k.rect(800, 40),
 		k.pos(0, 440),
 		k.color(139, 69, 19),
@@ -72,13 +62,42 @@ export default function sc01() {
 		"world",
 	]);
 
+
+	k.add([
+		k.rect(125, 250),
+		k.pos(700, 300),
+		k.area(),
+		k.body({ isStatic: true }),
+		k.color(255, 0, 0), // Rot
+		k.anchor("center"),
+		hunt(2.5, 0.4),
+		{ hp: 150 }, // HP
+		"npc",
+	]);
+
+	k.add([
+		k.rect(125, 250),
+		k.pos(700, 160),
+		k.area(),
+		k.body({ isStatic: true }),
+		k.color(255, 0, 0), // Rot
+		k.anchor("center"),
+		hunt(2.0, 1),
+		{ hp: 150 }, // HP
+		"npc",
+	]);
+
+
+
+
 	player.onCollideEnd("world", () => {
 		player.color = k.WHITE;
 	});
 
-	k.setBackground(94, 185, 255);
 
-	// Leben-Anzeige
+k.setBackground(94, 185, 255)
+
+// Leben-Anzeige
 	k.onDraw(() => {
 		k.drawText({
 			text: `Leben: ${player.hp}/${player.maxHp}`,

@@ -7,22 +7,20 @@ import k from "../main";
 export default function jump() {
 	return {
 		id: "jump",
-		/** @this {GameObj} */
+		required: ["body"],
+
+
+
+
 		add() {
+
+
+			// Springen nur einmal pro Bodenkontakt
 			this.onKeyDown("space", () => {
 				if (this.isGrounded()) {
 					this.jump();
 				}
 			});
-			this.onCollide("npc", (npc, col) => {
-				// Player jumps ontop of npc
-				if (col.normal.y < 0) {
-					npc.hp -= 1;
-					this.jump();
-				} else {
-					this.hp -= 1;
-				}
-			});
-		},
+		}
 	};
 }
