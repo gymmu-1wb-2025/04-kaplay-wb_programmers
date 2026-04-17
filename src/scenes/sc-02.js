@@ -65,36 +65,24 @@ k.add([
 
 	k.add([
 		k.rect(125, 250),
-		k.pos(700, 300),
+		k.pos(700, 295),
 		k.area(),
 		k.body({ isStatic: true }),
 		k.color(255, 0, 0), // Rot
 		k.anchor("center"),
-		hunt(),
+		hunt(2.5, 400, 2, 30),
 		{ hp: 150 }, // HP
 		"npc",
 	]);
 
 	k.add([
-		k.rect(125, 250),
-		k.pos(700, 300),
+		k.rect(125, 10),
+		k.pos(700, 180),
 		k.area(),
 		k.body({ isStatic: true }),
 		k.color(255, 0, 0), // Rot
 		k.anchor("center"),
-		hunt(),
-		{ hp: 150 }, // HP
-		"npc",
-	]);
-
-	k.add([
-		k.rect(125, 500),
-		k.pos(700, 130),
-		k.area(),
-		k.body({ isStatic: true }),
-		k.color(255, 0, 0), // Rot
-		k.anchor("center"),
-		hunt(3),
+		hunt(2.0, 400, 1, 30),
 		{ hp: 150 }, // HP
 		"npc",
 	]);
